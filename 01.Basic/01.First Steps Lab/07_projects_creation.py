@@ -1,3 +1,5 @@
+# Calculate how many hours will be needed for specific project
+
 architect_name = input()
 projects = int(input())
 

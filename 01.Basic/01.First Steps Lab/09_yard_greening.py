@@ -1,3 +1,5 @@
+# Calculate how much will cost greening of a yard
+
 square_meters = float(input())
 price = square_meters * 7.61
 discount = 0.18 * price

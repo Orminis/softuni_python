@@ -1,3 +1,5 @@
+# Calculate expenses for dog food and food for the other animals in a pet shop.
+
 number_of_dogs = int(input())
 number_of_other_animals = int(input())
 
