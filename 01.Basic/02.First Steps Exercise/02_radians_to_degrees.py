@@ -1,3 +1,5 @@
+# Converting angle from radiands to degree
+
 from math import pi
 
 # input of the angle

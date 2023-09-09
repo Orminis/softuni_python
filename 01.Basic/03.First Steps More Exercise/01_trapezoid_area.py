@@ -1,3 +1,5 @@
+#calculate trapezoid surface area.
+
 b1 = float(input())
 b2 = float(input())
 h = float(input())

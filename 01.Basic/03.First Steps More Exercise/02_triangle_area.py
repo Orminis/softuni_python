@@ -1,3 +1,5 @@
+# Calculate Triangle surface area.
+
 a = float(input())
 h = float(input())
 

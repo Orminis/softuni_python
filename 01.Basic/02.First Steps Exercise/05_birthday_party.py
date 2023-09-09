@@ -1,3 +1,5 @@
+# Calculate budget for birthday party
+
 rent_for_hall = int(input())
 
 price_for_cake = rent_for_hall * 0.2

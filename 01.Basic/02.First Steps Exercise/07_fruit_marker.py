@@ -1,3 +1,5 @@
+# Calculate price of the fruits from the local market.
+
 strawberry_price = float(input())
 bananas = float(input())
 oranges = float(input())

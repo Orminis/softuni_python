@@ -1,3 +1,5 @@
+# Veggie market prices
+
 price_for_vegies = float(input())
 price_for_fruits = float(input())
 kg_of_vegies = int(input())

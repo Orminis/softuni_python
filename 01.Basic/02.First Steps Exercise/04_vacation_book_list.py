@@ -1,3 +1,5 @@
+# Calculate the minimum hours per day to read a book during summer.
+
 number_of_pages = int(input())
 pages_read_per_hour = int(input())
 days_to_read_book = int(input())

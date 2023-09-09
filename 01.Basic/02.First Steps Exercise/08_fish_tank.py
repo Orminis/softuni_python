@@ -1,10 +1,12 @@
-lenght = int(input())
+#Calculate how much will be the water volume needed to fill the fish tank.
+
+length = int(input())
 width = int(input())
 height = int(input())
 percentage_occupied_volume = float(input())
 
 #Volume in litters
-volume_of_tank = lenght * width * height / 1000
+volume_of_tank = length * width * height / 1000
 
 percentage_occupied_volume /= 100
 

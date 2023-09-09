@@ -1,3 +1,5 @@
+# Calculate gathered sum for charity campaign after expenses.
+
 day_of_event = int(input())
 number_of_confectioners = int(input())
 cakes = int(input())
