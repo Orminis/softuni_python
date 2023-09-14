@@ -1,3 +1,5 @@
+# Calculate the sum of characters' ASCII numbers.
+
 number_of_characters = int(input())
 
 sum_of_ascii_values = 0

@@ -1,4 +1,4 @@
-# Four numbers will be input. 1st and 2nd will be add to each other \
+# Four numbers will be input. 1st and 2nd will be added to each other \
 # then divided by the 3rd and finally multiply by 4th number.
 
 n1_to_add = int(input())
