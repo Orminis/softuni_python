@@ -1,23 +1,20 @@
 #to create a function that receives parameters and calculates
 #multiply divide add substract
 
-def multiply(a, b):
-    return a * b
-
-
-def divide(a, b):
-    return a / b
-
-
-def add(a, b):
-    return a + b
-
-
-def subtract(a, b):
-    return a - b
-
-
 def calculate(operator, number_one, number_two):
+
+    def multiply(a, b):
+        return a * b
+
+    def divide(a, b):
+        return a / b
+
+    def add(a, b):
+        return a + b
+
+    def subtract(a, b):
+        return a - b
+
     res = 0
     if operator == "multiply":
         res = multiply(number_one, number_two)

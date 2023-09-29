@@ -23,17 +23,3 @@ for _ in range(n):
 
 if is_balanced:
     print("BALANCED")
-
-
-#####################################################
-
-lines = int(input())
-balanced = []
-counter_open = 0
-counter_close = 0
-is_balanced = False
-for i in range(lines):
-    line = input()
-    if line in ["(", ")"]:
-        balanced.append(line)
-print(balanced)

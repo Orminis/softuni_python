@@ -1,14 +1,16 @@
-def rounding():
-    numbers = input().split()
+def rounding(nums):
     new_list = []
 
-    for i in range(len(numbers)):
-        x = round(float(numbers[i]))
+    for i in range(len(nums)):
+        x = round(float(nums[i]))
         new_list.append(x)
 
-    print(new_list)
+    return new_list
 
 
-rounding()
+numbers = input().split()
+rounded_numbers = rounding(numbers)
+
+print(rounded_numbers)
 
 
