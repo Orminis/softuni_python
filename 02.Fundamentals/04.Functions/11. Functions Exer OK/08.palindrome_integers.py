@@ -2,6 +2,8 @@
 
 
 ############################################################
+#Write a function that receives a list of positive integers, separated by comma and space ", ".
+# The function should check if each integer is a palindrome - True or False. Print the result.
 
 numbers = input().split(", ")
 

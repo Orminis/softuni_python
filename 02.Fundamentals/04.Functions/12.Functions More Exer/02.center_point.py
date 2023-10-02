@@ -1,8 +1,8 @@
 import math
 
 
-def coordination_point(x1, y1):
-    diagonal_to_o = math.sqrt(x1 ** 2 + y1 ** 2)
+def coordination_point(x, y):
+    diagonal_to_o = math.sqrt(x ** 2 + y ** 2)
     return diagonal_to_o
 
 
