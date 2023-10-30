@@ -3,11 +3,11 @@ class Party:
         self.people = []
 
 
+name = input()
+
 party = Party()
 
-name = input()
 while not name == "End":
-
     party.people.append(name)
     name = input()
 
