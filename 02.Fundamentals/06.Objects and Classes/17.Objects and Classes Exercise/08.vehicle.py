@@ -23,32 +23,39 @@ class Vehicle:
         self.owner = None
 
     def buy(self, money: int, owner: str):
-        if price > money:
+        if money >= self.price and not self.owner:
+            change = money - self.price
+            self.owner = owner
+            return f"Successfully bought a {self.type}. Change: {change}"
+        elif money < self.price:
             return "Sorry, not enough money"
         elif self.owner:
             return "Car already sold"
-        self.owner = owner
-        return f"Successfully bought a {self.type}. Change: {self.price - money}"
-
 
     def sell(self):
-        if self.owner is None:
-            return f"Vehicle has no owner"
-        self.owner = None
+        if self.owner:
+            self.owner = None
+        else:
+            return "Vehicle has no owner"
 
     def __repr__(self):
         if self.owner:
             return f"{self.model} {self.type} is owned by: {self.owner}"
         return f"{self.model} {self.type} is on sale: {self.price}"
 
-vehicle_type = "car"
-model = "BMW"
-price = 30000
-vehicle = Vehicle(vehicle_type, model, price)
-print(vehicle.buy(15000, "Peter"))
-print(vehicle.buy(30000, "Peter"))
-print(vehicle.buy(35000, "George"))
-print(vehicle)
-print(vehicle.sell())
-print(vehicle.sell())
-print(vehicle)
+# vehicle_type = "car"
+# model = "BMW"
+# price = 30000
+# vehicle = Vehicle(vehicle_type, model, price)
+# print(vehicle.buy(15000, "Peter"))
+# print(vehicle.buy(35000, "George"))
+# print(vehicle)
+# vehicle.sell()
+# print(vehicle)
+
+vehicle_bus = "bus"
+bus_model = "Chavdar"
+bus_price = 15000
+chavdarche = Vehicle(vehicle_bus, bus_model, bus_price)
+print(chavdarche.sell())
+or
