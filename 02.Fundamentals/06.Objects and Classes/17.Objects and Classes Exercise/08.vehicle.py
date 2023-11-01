@@ -23,14 +23,13 @@ class Vehicle:
         self.owner = None
 
     def buy(self, money: int, owner: str):
-        if money >= self.price and not self.owner:
-            change = money - self.price
-            self.owner = owner
-            return f"Successfully bought a {self.type}. Change: {change}"
-        elif money < self.price:
+        if money < self.price:
             return "Sorry, not enough money"
         elif self.owner:
             return "Car already sold"
+        change = money - self.price
+        self.owner = owner
+        return f"Successfully bought a {self.type}. Change: {change:.2f}"
 
     def sell(self):
         if self.owner:
@@ -58,4 +57,11 @@ bus_model = "Chavdar"
 bus_price = 15000
 chavdarche = Vehicle(vehicle_bus, bus_model, bus_price)
 print(chavdarche.sell())
-or
+print(chavdarche.buy(14999, 'Mite'))
+print(chavdarche.buy(15000, 'Mite'))
+print(chavdarche.buy(15000, 'Mite'))
+print(chavdarche.buy(14000, 'Mite'))
+print(chavdarche)
+print(chavdarche.sell())
+print(chavdarche.sell())
+print(chavdarche)
