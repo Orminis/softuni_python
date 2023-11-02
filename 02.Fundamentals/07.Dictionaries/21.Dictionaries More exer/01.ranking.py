@@ -15,6 +15,19 @@ Here is what you need to do.
 In the end, you should print the info for the user with the most points (total points for all contents they participated in)
  in the format "Best candidate is {user} with total {total_points} points.". After that print all students ordered by their names.
 For each user print each contest with the points in descending order. See the examples.
+
+Input
+    Strings in format "{contest}:{password for contest}" until the "end of contests" command. There will be no case with two equal contests
+    Strings in format "{contest}=>{password}=>{username}=>{points}" until the "end of submissions" command.
+    There will be no case with 2 or more users with same total points!
+Output
+    On the first line, print the best user in format "Best candidate is {user} with total {total points} points.".
+    Then print all students ordered as mentioned above in format:
+    "{user_name1}
+        #  {contest1} -> {points}
+        #  {contest2} -> {points}
+        …
+        #  {contestN} -> {points}"
 """
 
 contest_dict = {}
@@ -50,11 +63,19 @@ while not submissions_info == "end of submissions":
 
     submissions_info = input()
 
+final_scores_list = {}
 for user, contests in users_dict.items():
-    sorted_contest = dict(sorted(contests.items(), key=lambda kvp: -kvp[1]))
+    user_points = sum([int(v) for k, v in contests.items()])
+    final_scores_list[user] = user_points
+best_user = max(final_scores_list, key=final_scores_list.get)
+best_score = final_scores_list[best_user]
+print(f"Best candidate is {best_user} with total {best_score} points."
+      f"\nRanking:")
 
-for user, contests in users_dict.items():
+sorted_user_dict = dict(sorted(users_dict.items(), key=lambda name: name[0]))
+
+for user, contests in sorted_user_dict.items():
+    print(user)
     sorted_contest = dict(sorted(contests.items(), key=lambda kvp: -kvp[1]))
-    print(sorted_contest)
     for contest, score in sorted_contest.items():
-        print(f"# {contest} -> {score}")
+        print(f"#  {contest} -> {score}")
