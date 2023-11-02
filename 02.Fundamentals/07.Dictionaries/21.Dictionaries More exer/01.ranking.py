@@ -63,7 +63,9 @@ while not submissions_info == "end of submissions":
 
     submissions_info = input()
 
+#Printing best user.
 final_scores_list = {}
+
 for user, contests in users_dict.items():
     user_points = sum([int(v) for k, v in contests.items()])
     final_scores_list[user] = user_points
@@ -72,6 +74,8 @@ best_score = final_scores_list[best_user]
 print(f"Best candidate is {best_user} with total {best_score} points."
       f"\nRanking:")
 
+
+#Printing all users alphabetically and all contests (from the highest score descending).
 sorted_user_dict = dict(sorted(users_dict.items(), key=lambda name: name[0]))
 
 for user, contests in sorted_user_dict.items():
