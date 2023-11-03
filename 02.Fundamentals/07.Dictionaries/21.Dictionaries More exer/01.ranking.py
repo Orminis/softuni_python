@@ -74,7 +74,6 @@ best_score = final_scores_list[best_user]
 print(f"Best candidate is {best_user} with total {best_score} points."
       f"\nRanking:")
 
-
 #Printing all users alphabetically and all contests (from the highest score descending).
 sorted_user_dict = dict(sorted(users_dict.items(), key=lambda name: name[0]))
 
