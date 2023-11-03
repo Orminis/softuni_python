@@ -63,7 +63,7 @@ for cont, users in contest_dict.items():
             user_dict[user] = 0
         user_dict[user] += points
 
-sorted_user_dict = dict(sorted(user_dict.items(), key=lambda kvp: -kvp[1]))
+sorted_user_dict = dict(sorted(user_dict.items(), key=lambda kvp: (-kvp[1], kvp[0])))
 counter = 1
 print("Individual standings:")
 for user, points in sorted_user_dict.items():
