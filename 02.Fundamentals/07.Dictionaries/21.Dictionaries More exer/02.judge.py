@@ -52,6 +52,8 @@ while not judge_input == "no more time":
             contest_dict[contest][username] = points
 
     judge_input = input()
+
+# Console printing
 for cont, users in contest_dict.items():
     print(f"{cont}: {len(contest_dict[cont])} participants")
     counter = 1
