@@ -48,10 +48,12 @@ while not players_input == "Season end":
         skill = int(skill)
 
         # adding new player to the dict + position and skill
-        if not player_name in players_dict:
-            players_dict[player_name] = {positions: skill}
+        if player_name not in players_dict:
+            players_dict[player_name] = {}
         # adding position if not present or updating position's skill if current skill is lower than the new one.
-        elif not positions in players_dict[player_name] or skill > players_dict[player_name][positions]:
+        if positions not in players_dict[player_name]:
+            players_dict[player_name][positions] = skill
+        elif skill > players_dict[player_name][positions]:
             players_dict[player_name][positions] = skill
     # Duel time.
     else:
@@ -63,15 +65,13 @@ while not players_input == "Season end":
             continue
         # Check for common positions and the skill.
         for position in possible_positions:
-            # if players_dict.get(player_one) is None or players_dict.get(player_two) is None:
-            #     continue
             if position in players_dict.get(player_one) and position in players_dict.get(player_two):
                 player_one_skill_sum = sum(players_dict[player_one].values())
                 player_two_skill_sum = sum(players_dict[player_two].values())
-                if players_dict[player_one][position] > players_dict[player_two][position]:
+                if player_one_skill_sum > player_two_skill_sum:
                     players_dict.pop(player_two)
                     break
-                elif players_dict[player_one][position] < players_dict[player_two][position]:
+                elif player_one_skill_sum < player_two_skill_sum:
                     players_dict.pop(player_one)
                     break
 
@@ -82,12 +82,9 @@ sorted_player_dict_by_skill_and_name = dict(sorted(players_dict.items(), key=lam
 
 # ordered position descending by skill, then ordered by name in ascending order.
 # Using dictionary comprehension will order stat: (position/skill) for each player
-sorted_psn_by_skill_per_player = {players: dict(sorted(stats.items(), key= lambda x: (-x[1], x[0]))) for players, stats in sorted_player_dict_by_skill_and_name.items()}
-
+# sorted_psn_by_skill_per_player = {players: dict(sorted(stats.items(), key= lambda x: (-x[1], x[0]))) for players, stats in sorted_player_dict_by_skill_and_name.items()}
 # for players, stats in sorted_psn_by_skill_per_player
-for players, stats in sorted_psn_by_skill_per_player.items():
-    if not stats:
-        continue
-    print(f"{players}: {sum(stats.values())} skill")
-    for psn, skill in stats.items():
+for player, stats in sorted_player_dict_by_skill_and_name.items():
+    print(f"{player}: {sum(stats.values())} skill")
+    for psn, skill in sorted(stats.items(), key= lambda kvp: (-int(kvp[1]), kvp[0])):
         print(f"- {psn} <::> {skill}")
