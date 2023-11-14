@@ -36,7 +36,6 @@ Output
 
 
 players_dict = {}
-possible_positions = ["Tank", "Mid", "Support", "Adc"]
 
 players_input = input()
 
@@ -64,8 +63,8 @@ while not players_input == "Season end":
             players_input = input()
             continue
         # Check for common positions and the skill.
-        for position in possible_positions:
-            if position in players_dict.get(player_one) and position in players_dict.get(player_two):
+        for position in players_dict[player_one].keys():
+            if position in players_dict[player_two]:
                 player_one_skill_sum = sum(players_dict[player_one].values())
                 player_two_skill_sum = sum(players_dict[player_two].values())
                 if player_one_skill_sum > player_two_skill_sum:
