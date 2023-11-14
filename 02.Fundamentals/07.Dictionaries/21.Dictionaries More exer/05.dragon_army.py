@@ -43,8 +43,11 @@ class Dragon:
     def __repr__(self):
         return self.name
 
+
 num_of_dragons = int(input())
-dragons = {}
+
+dragons = {}                    # Example: {Red: [Argo, Sylvanas, Erixtraza], Black: [Deathwing], ... Orange: [Garfield]}
+
 for _ in range(num_of_dragons):
     tpe, name, damage, health, armor = input().split()
 
@@ -58,19 +61,13 @@ for _ in range(num_of_dragons):
         dragons[tpe].append(dragon)
 
 for typ, drgs_info in dragons.items():
-    var_dmg = 0
-    var_hp = 0
-    var_armor = 0
-    names = []
-    for drg in drgs_info:
-        names.append(drg)
-        var_dmg += int(drg.damage)
-        var_hp += int(drg.health)
-        var_armor += int(drg.armor)
+    drg_hp = sum([int(drg.health) for drg in drgs_info])
+    drg_dmg = sum([int(drg.damage) for drg in drgs_info])
+    drg_arm = sum([int(drg.armor) for drg in drgs_info])
     print(f"{typ}::"
-          f"({var_dmg/len(names):.2f}/"
-          f"{var_hp/len(names):.2f}/"
-          f"{var_armor/len(names):.2f})")
-    names.sort(key=lambda x: x.name)
-    for drg_name in names:
+          f"({drg_dmg/len(drgs_info):.2f}/"
+          f"{drg_hp/len(drgs_info):.2f}/"
+          f"{drg_arm/len(drgs_info):.2f})")
+    drgs = sorted([drg for drg in drgs_info], key=lambda x: x.name)
+    for drg_name in drgs:
         print(drg_name)
