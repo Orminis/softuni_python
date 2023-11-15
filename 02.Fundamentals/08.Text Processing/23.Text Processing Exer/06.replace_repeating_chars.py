@@ -1,3 +1,6 @@
+"""
+Write a program which reads a string from the console and replaces any sequence of the same letters with a single corresponding letter.
+"""
 data = input()
 
 index = 0

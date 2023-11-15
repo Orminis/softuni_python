@@ -1,7 +1,16 @@
-def multiply_ascii_char_nums(list1, list2):
+"""
+Create a program which receives two strings on a single line separated by a single space and
+prints the sum of their multiplied character codes as follows:
+multiply str1[0] with str2[0] and add the result to the total sum,
+then continue with the next two characters.
+If one of the strings is longer than the other,
+add the remaining character codes to the total sum without multiplication.
+"""
+
+def multiply_ascii_char_nums(shorter_lst, longer_lst):
     multiply_sum = 0
-    for i in range(len(list1)):
-        multiply_sum += list1[i] * list2[i]
+    for i in range(len(shorter_lst)):
+        multiply_sum += shorter_lst[i] * longer_lst[i]
     return multiply_sum
 
 

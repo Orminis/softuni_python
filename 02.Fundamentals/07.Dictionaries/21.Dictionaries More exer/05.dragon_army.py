@@ -37,6 +37,7 @@ class Dragon:
         self.health = hp if hp != "null" else self._DEFAULT_HP
         self.armor = arm if arm != "null" else self._DEFAULT_ARM
 
+
     def __str__(self):
         return f"-{self.name} -> damage: {self.damage}, health: {self.health}, armor: {self.armor}"
 
@@ -46,7 +47,7 @@ class Dragon:
 
 num_of_dragons = int(input())
 
-dragons = {}                    # Example: {Red: [Argo, Sylvanas, Erixtraza], Black: [Deathwing], ... Orange: [Garfield]}
+dragons = {}        # Example: {Red: [Argo, Sylvanas, Erixtraza], Black: [Deathwing], ... Orange: [Garfield]}
 
 for _ in range(num_of_dragons):
     tpe, name, damage, health, armor = input().split()

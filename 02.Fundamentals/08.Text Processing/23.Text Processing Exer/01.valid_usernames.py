@@ -1,3 +1,11 @@
+"""
+Write a program which reads usernames on a single line (separated by ", ") and prints all valid usernames on separate lines.
+A valid username:
+    has length between 3 and 16 characters inclusive
+    contains only letters, numbers, hyphens, and underscores
+    has no redundant symbols before, after or in between
+"""
+
 # usernames = input().split(", ")
 # list_of_usernames = []
 # is_username = True
