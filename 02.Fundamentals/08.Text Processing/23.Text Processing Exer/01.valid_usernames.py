@@ -30,7 +30,7 @@ A valid username:
 #         print(word)
 #
 def is_valid_char(char):
-    if char == "-" or char == "_" or char.isallnum():
+    if char == "-" or char == "_" or char.isalnum():
         return True
 
 usernames = input().split(", ")
