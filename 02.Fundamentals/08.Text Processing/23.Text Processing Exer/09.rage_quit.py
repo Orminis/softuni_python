@@ -9,7 +9,7 @@ He’ll give you a series of strings followed by non-negative numbers, e.g., "a3
 In the example, you need to write back "AAA".
 
 On the output, print first a statistic of the number of unique symbols used (the casing of letters is irrelevant, meaning that 'a' and 'A' are the same);
-the format shoud be "Unique symbols used {0}". Then, print the rage message itself.
+the format should be "Unique symbols used {0}". Then, print the rage message itself.
 The strings and numbers will not be separated by anything. The input will always start with a string and for each string there will be a corresponding number.
 The entire input will be given on a single line; Peter is too lazy to make your job easier.
 """
