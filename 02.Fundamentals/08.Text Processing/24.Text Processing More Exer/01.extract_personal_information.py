@@ -44,3 +44,15 @@ for ln in range(nums_of_lines):
                 age = take_name_and_age(str_to_be_checked[indx+1::])
 
     print(f"{name} is {age} years old.")
+
+# With Regex
+import re
+
+num_of_lines = int(input())
+name_pattern = r"(?<=@)([A-Za-z]+)(?=|)"
+age_pattern = r"(?<=#)(\d+)(?=\*)"
+for _ in range(num_of_lines):
+    line = input()
+    name_match = re.search(name_pattern, line)
+    age_match = re.search(age_pattern, line)
+    print(f"{name_match.group()} is {age_match.group()} years old.")
