@@ -26,18 +26,18 @@ Constraints
 Number in a demon's name is considered everything that is a valid integer or floating point number (with dot '.' used as separator).
 For example, all these are valid numbers: '4', '+4', '-4', '3.5', '+3.5', '-3.5'
 """
+
 import re
 
-inp_str = input().split(", ")
-health_pattern = r"[^\d+*/.-]"
-numbers_pattern = r"[+-]?\d(\.\d+)?"
+inp_str =  sorted([name.strip() for name in input().split(",")])
+
+health_pattern = r"[^0-9+\-*/.]"
+numbers_pattern = r"[+|-]?\d+\.?\d*"
 signs_pattern = r"[*/]"
 
 demons = {}
 
 for demon_str in inp_str:
-    demons[demon_str] = []
-
     demon_health = 0
     demon_dmg = 0
 
@@ -45,23 +45,20 @@ for demon_str in inp_str:
     demon_health_lst = re.findall(health_pattern, demon_str)
     for ch in demon_health_lst:
         demon_health += ord(ch)
-    # adding health to demons dict on loc 0
-    demons[demon_str].append(demon_health)
 
     # calculating demon's basic damage
-    demon_dmg_lst = re.finditer(numbers_pattern, demon_str)
+    demon_dmg_lst = re.findall(numbers_pattern, demon_str)
     for char in demon_dmg_lst:
-        demon_dmg += float(char.group())
+        demon_dmg += float(char)
     # calculating demon's final damage if there are `*` or `/` signs
     signs_list = re.findall(signs_pattern, demon_str)
-    if signs_list:
-        for sign in signs_list:
-            if sign == "*":
-                demon_dmg *= 2
-            elif sign == "/":
-                demon_dmg /= 2
-    demons[demon_str].append(demon_dmg)
+    for sign in signs_list:
+        if sign == "*":
+            demon_dmg *= 2
+        elif sign == "/":
+            demon_dmg /= 2
 
-sorted_demons = dict(sorted(demons.items(), key=lambda kvp: kvp[0]))
-for demon, stats in sorted_demons.items():
-    print(f"{demon} - {stats[0]} health, {stats[1]:.2f} damage")
+    demons[demon_str] = [demon_health, demon_dmg]
+
+    print(f"{demon_str} - {demon_health} health, {demon_dmg:.2f} damage")
+
